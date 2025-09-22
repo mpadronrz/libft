@@ -1,0 +1,25 @@
+#include "libft.h"
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*str;
+	size_t	start;
+	size_t	len;
+
+	len = ft_strlen(s1);
+	start = 0;
+	while (start < len && ft_strchr(set, s1[start]))
+		start ++;
+	if (start == len)
+	{
+		str = ft_calloc(sizeof(char), 1);
+		if (! str)
+			return (NULL);
+		return (str);
+	}
+	len --;
+	while (ft_strchr(set, s1[len]))
+		len --;
+	str = ft_substr(s1, start, len + 1 - start);
+	return (str);
+}
