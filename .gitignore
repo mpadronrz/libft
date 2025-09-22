@@ -2,3 +2,4 @@
 *.a
 pruebas.c
 prog
+*.sh

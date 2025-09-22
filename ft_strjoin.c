@@ -6,6 +6,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len1;
 	size_t	len2;
 
+	if (s1 == NULL)
+	{
+		if (s2 == NULL)
+			return (NULL);
+		return (ft_strdup(s2));
+	}
+	if (s2 == NULL)
+		return (ft_strdup(s1));
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	str = malloc((len1 + len2 + 1) * sizeof(char));
