@@ -48,12 +48,14 @@ char	**ft_split(char const *s, char c)
 	size_t	len;
 	size_t	words;
 
+	if (!s)
+		return (NULL);
 	words = count_words(s, c);
 	array = malloc((words + 1) * sizeof(char *));
 	if (! array)
 		return (NULL);
-	i = 0;
-	while (i < words)
+	i = -1;
+	while (++i < words)
 	{
 		while (*s == c)
 			s ++;
@@ -63,7 +65,6 @@ char	**ft_split(char const *s, char c)
 			return (free_array(array, i));
 		ft_strlcpy(array[i], s, len + 1);
 		s += len;
-		i ++;
 	}
 	array[i] = NULL;
 	return (array);
