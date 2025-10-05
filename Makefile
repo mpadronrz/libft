@@ -50,7 +50,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar crs $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.c Makefile libft.h
 	$(CC) -c $(FLAGS) $< -o $@
 
 clean:
@@ -59,8 +59,8 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-bonus: $(BONUSOBJS)
-	ar crs $(NAME) $(BONUSOBJS)
+bonus: $(OBJS) $(BONUSOBJS)
+	ar crs $(NAME) $(OBJS) $(BONUSOBJS)
 
 re: fclean all
 
