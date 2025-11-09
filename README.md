@@ -6,6 +6,15 @@
 
 ---
 
+## 📑 Table of Contents
+
+* [About the Project](#about-the-project)
+* [Features](#features)
+* [Compilation](#compilation)
+* [How It Works](#how-it-works)
+
+---
+
 ## 🏫 About the Project <a id="about-the-project"></a>
 
 **Libft** is the first project in the 42 curriculum.
