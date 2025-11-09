@@ -1,6 +1,7 @@
-NAME= libft.a
-CC= cc
-FLAGS= -Wall -Wextra -Werror -g3
+NAME = libft.a
+BONUS_NAME = .bonus
+CC = cc
+FLAGS = -Wall -Wextra -Werror -g3
 SRCS = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_calloc.c \
@@ -50,6 +51,12 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar crs $(NAME) $(OBJS)
 
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(OBJS) $(BONUSOBJS)
+	ar crs $(NAME) $(OBJS) $(BONUSOBJS)
+	@touch $(BONUS_NAME)
+
 %.o: %.c Makefile libft.h
 	$(CC) -c $(FLAGS) $< -o $@
 
@@ -58,10 +65,8 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-
-bonus: $(OBJS) $(BONUSOBJS)
-	ar crs $(NAME) $(OBJS) $(BONUSOBJS)
+	@rm -rf $(BONUS_NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re
